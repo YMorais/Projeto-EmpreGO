@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Editar Empresa{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="contact-form">
+                <h1>EmpreGO</h1>
+                <span class="heading" style="height: 10px; padding-top: 10px;">Editar Empresa</span>
+
+                <form action="/editar_empresa/{{ empresa[0] }}" method="post"> 
+                    <label for="nome_empresa" style="padding-top: 30px;">Nome Fantasia da Empresa:</label>
+                    <input type="text" name="nome_empresa" value="{{empresa[1]}}" required>
+
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" name="cnpj" maxlength="14" placeholder="Somente números" value="{{empresa[2]}}" required>
+
+                    <label for="telefone">Telefone de contato:</label>
+                    <input type="text" name="telefone" maxlength="11" placeholder="Somente números" value="{{empresa[3]}}" required>
+
+                    <h2>Informações para acesso da plataforma</h2>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" value="{{empresa[4]}}" required>
+
+                    <label for="senha">Senha:</label>
+                    <input type="text" name="senha" value="{{empresa[5]}}" required>
+
+                    <button type="submit">Cadastrar Empresa</button>
+
+                    {% if msg_erro %}
+                        <p class="error-message">{{ msg_erro }}</p>
+                    {% endif %}
+                </form>
+
+                <!-- Add "Voltar" button below the form -->
+                <div class="text-center mt-3">
+                    <a href="/adm" class="btn btn-secondary">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

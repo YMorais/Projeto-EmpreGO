@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Editar Vaga{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="contact-form">
+                <h1>EmpreGO</h1>
+                <span class="heading">Editar Vaga</span>
+
+                {% if msg_erro %}  <!-- Exibe mensagem de erro, se houver -->
+                    <div class="alert alert-danger" role="alert">
+                        {{ msg_erro }}
+                    </div>
+                {% endif %}
+
+                <form action="/editar_vaga/{{ vaga.id_vaga }}" method="post">
+                    <label for="titulo">Título da Vaga:</label>
+                    <input type="text" name="titulo" value="{{vaga.titulo}}" required>
+
+                    <label for="descricao">Descrição da Vaga:</label>
+                    <textarea name="descricao" rows="5" required>{{vaga.descricao}}</textarea>
+
+                    <label for="formato" style="padding-top: 20px;">Formato de Trabalho:</label>
+                    <select name="formato" required>
+                        <option {% if vaga.formato == 'Presencial' %} selected {% endif %} value="Presencial">Presencial</option>
+                        <option {% if vaga.formato == 'Remoto' %} selected {% endif %} value="Remoto">Remoto</option>
+                        <option {% if vaga.formato == 'Híbrido' %} selected {% endif %} value="Híbrido">Híbrido</option>
+                    </select>
+
+                    <label for="tipo" style="padding-top: 20px;">Tipo de Contrato:</label>
+                    <select name="tipo" required>
+                        <option {% if vaga.tipo == 'CLT' %} selected {% endif %} value="CLT">CLT</option>
+                        <option {% if vaga.tipo == 'PJ' %} selected {% endif %} value="PJ">PJ</option>
+                    </select>
+
+                    <label for="local" style="padding-top: 20px;">Local da Vaga (se aplicável):</label>
+                    <input type="text" name="local" value="{{vaga.local}}">
+
+                    <label for="salario">Salário (opcional):</label>
+                    <input type="text" name="salario" value="{{vaga.salario}}">
+
+                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                </form>
+
+                <!-- Voltar button -->
+                <div class="text-center mt-3">
+                    <a href="/adm" class="btn btn-secondary">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

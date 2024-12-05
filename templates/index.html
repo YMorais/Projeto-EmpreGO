@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Encontre sua vaga ideal{% endblock %}
+
+{% block content %}
+
+<section class="hero-section container-fluid d-none d-xl-block">
+    <div class="overlay"></div>
+</section>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 style="padding-top: 30px;">Encontre sua vaga ideal!</h1>
+                <p>Explore as vagas mais recentes e dê o próximo passo na sua carreira.</p>
+                {% if login == 'empresa' %}
+                        <a href="/cadastrarvaga" class="btn btn-success">Cadastrar Vaga</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mt-4">
+
+            {% for vaga in vagas %}
+                <div class="col-12 col-md-6 col-lg-3">
+                    {% include 'card.html' %}
+                </div>
+            {% endfor %}
+
+            {% if not vagas %}
+                <div class="col-12">
+                    <p class="text-center">Nenhuma vaga encontrada no momento.</p>
+                </div>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

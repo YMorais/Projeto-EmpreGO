@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Nova Empresa{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center"> <!-- Centraliza horizontalmente -->
+        <div class="col-md-5 mt-5"> <!-- Ocupa metade da tela em telas médias e maiores -->
+            <div class="contact-form mt-5">
+                <span class="heading text-center" style="height: 100px; padding-top: 50px;">Nova Empresa</span>
+                <form action="/cadastrar_empresa" method="post" class="mb-5">
+                    <label for="nome_empresa">Nome Fantasia da Empresa:</label>
+                    <input type="text" name="nome_empresa" required placeholder="Nome da Empresa">
+                    
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" name="cnpj" maxlength="14" placeholder="Somente números" required>
+                    
+                    <label for="telefone">Telefone de Contato:</label>
+                    <input type="text" name="telefone" maxlength="11" placeholder="Somente números" required>
+                    
+                    <h2 class="mt-4">Informações para Acesso da Plataforma</h2>
+                    
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" required placeholder="Insira o e-mail de contato">
+                    
+                    <label for="senha">Senha:</label>
+                    <input type="text" name="senha" required placeholder="Escolha uma senha">
+                    
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Cadastrar Empresa</button>
+                    
+                    {% if msg_erro %}
+                    <p class="text-danger mt-3">{{ msg_erro }}</p>
+                    {% endif %}
+                </form>
+
+                <div class="text-center">
+                    <a href="/logout" class="btn btn-secondary">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

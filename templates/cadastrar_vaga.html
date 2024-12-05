@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Cadastrar Vaga{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5 mt-2 ">
+            <div class="contact-form">
+                <span class="heading" style="height: 70px; padding-top: 40px;">Cadastrar Nova Vaga</span>
+
+                {% if msg_erro %}  <!-- Exibe mensagem de erro, se houver -->
+                    <div class="alert alert-danger" role="alert">
+                        {{ msg_erro }}
+                    </div>
+                {% endif %}
+
+                <form action="/cadastrar_vaga" method="post" class="needs-validation" novalidate>
+                    <div class="mb-1">
+                        <label for="titulo">Título da Vaga:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        <div class="valid-feedback">
+                            Informação válida!
+                        </div>
+                        <div class="invalid-feedback">
+                            Preencha o título da vaga. Ex: Programador back-end
+                        </div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="descricao">Descrição da Vaga:</label>
+                        <textarea id="descricao" class="form-control" name="descricao" rows="5" required></textarea>
+                        <div class="valid-feedback">
+                            Informação válida!
+                        </div>
+                        <div class="invalid-feedback">
+                            Preencha a descrição da vaga. Ex: Implementaçao de APIs e manutenção de servidores.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="formato" style="padding-top: 10px;">Formato de Trabalho:</label>
+                        <select id="formato" class="form-control" name="formato" required>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Remoto">Remoto</option>
+                            <option value="Híbrido">Híbrido</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Informação válida!
+                        </div>
+                        <div class="invalid-feedback">
+                            Selecione o formato da vaga.
+                        </div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="tipo" style="padding-top: 10px;">Tipo de Contrato:</label>
+                        <select id="tipo" name="tipo" class="form-control" required>
+                            <option value="CLT">CLT</option>
+                            <option value="PJ">PJ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="local" style="padding-top: 10px;">Local da Vaga (se aplicável):</label>
+                        <input type="text" id="local" name="local" class="form-control">
+                    </div>
+                    
+                    <div class="mb-1">
+                        <label for="salario">Salário</label>
+                        <input type="text" id="salario" name="salario" class="form-control" required>
+                        <div class="valid-feedback">
+                            Informação válida!
+                        </div>
+                        <div class="invalid-feedback">
+                            Informe o valor da vaga em reais.
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Cadastrar Vaga</button>
+                    <div class="text-center mt-3">
+                        <a href="/logout" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+
+{% endblock %}

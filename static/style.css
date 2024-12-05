@@ -1,0 +1,283 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Primary text color */
+.text-primary {
+    color: #4a0762;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a500b4;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 8px;
+    background-color: #4a0762;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.navbar-links a {
+    margin-left: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.login {
+    color: #a500b4;
+    font-weight: bold;
+}
+
+.for-candidates {
+    color: #a500b4;
+    font-weight: bold;
+}
+
+.hero-section {
+    position: relative;
+    height: 94vh;
+    background: url('/static/img/EMPRE\ \(1\).png') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    
+}
+
+/* .hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+} */
+
+.hero-section .content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero-section .buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    z-index: 0;
+}
+
+.hero-section .buttons .subscribe,
+.hero-section .buttons .login {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-section .buttons .subscribe {
+    background-color: #a500b4;
+    color: #fff;
+}
+
+.hero-section .buttons .login {
+    background-color: #fff;
+    color: #a500b4;
+    border: 2px solid #a500b4;
+}
+
+.hero-section .buttons .subscribe:hover,
+.hero-section .buttons .login:hover {
+    opacity: 0.8;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 40px; 
+    font-size: 1.5em; 
+    font-weight: bold; 
+    height: 120px; 
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center; 
+}
+
+.card-body{
+    height: 250px;
+}
+
+.text-primary{
+    color: #a500b4 !important;
+}
+
+.btn-primary {
+    background-color: #a500b4 !important;
+    border: #a500b4 !important;
+}
+
+.content{
+    padding-right: 800px;
+}
+
+/* From Uiverse.io by ClawHack1 */ 
+.contact-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .contact-form label {
+    color: black;
+  }
+  
+  .contact-form .heading {
+    font-size: 24px;
+    color: black;
+    ;
+    margin-bottom: 12px;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    resize: none;
+    height: 80px;
+    width: 200px;
+  }
+  
+  .contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #660b97;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .contact-form button[type="submit"] {
+    background-color: #660b97;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .contact-form button[type="submit"]:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* From Uiverse.io by alexruix */ 
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+   }
+   
+   .input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+   }
+   
+   .input::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+   }
+
+
+
+
+
+

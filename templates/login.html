@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}EmpreGO! - Login{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center"> <!-- Centraliza horizontalmente -->
+        <div class="col-md-4 mt-5"> <!-- Ocupa metade da tela em telas médias e maiores -->
+            <div class="contact-form mt-5 col-12 col-md-12 col-lg-12">
+                <span class="heading text-center" style="height: 100px; padding-top: 50px;">Login</span>
+                <form action="/login" method="post" class="mb-5">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required placeholder="Insira seu e-mail">
+                    
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required placeholder="Insira sua senha">
+                    
+                    <button type="submit">Acessar</button>
+                    <div class="text-center mt-3">
+                        <a href="/logout" class="btn btn-secondary">Voltar</a>
+                    </div>
+                    {% if msg_erro %}
+                        <p> {{msg_erro}}</p>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
